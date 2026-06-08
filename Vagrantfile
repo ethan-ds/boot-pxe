@@ -45,6 +45,7 @@ Vagrant.configure("2") do |config|
       vb.memory = 512
       vb.cpus   = 1
     end
+    c.vm.provision "shell", path: "install/setup-client.sh"
   end
 
 end
