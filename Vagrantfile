@@ -16,9 +16,8 @@ Vagrant.configure("2") do |config|
     s.vm.hostname = "pcstage"
 
     # Réseau interne simulant le réseau du labo (172.16.16.0/24)
-    s.vm.network "private_network",
-      ip: "172.16.16.1",
-      virtualbox__intnet: "pxe-network"
+    s.vm.network "public_network",
+      ip: "172.16.16.1"
 
     s.vm.provider "virtualbox" do |vb|
       vb.name   = "pcstage"
@@ -36,9 +35,8 @@ Vagrant.configure("2") do |config|
     c.vm.hostname = "client-pxe"
 
     # Même réseau interne que pcstage
-    c.vm.network "private_network",
-      ip: "172.16.16.50",
-      virtualbox__intnet: "pxe-network"
+    c.vm.network "public_network",
+      ip: "172.16.16.50"
 
     c.vm.provider "virtualbox" do |vb|
       vb.name   = "client-pxe"
