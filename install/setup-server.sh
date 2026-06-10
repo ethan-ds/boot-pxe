@@ -1,5 +1,5 @@
 #!/bin/bash
-# setup-pcstage.sh — Installation et configuration complète du serveur PXE
+# setup-server.sh — Installation et configuration complète du serveur PXE
 # Installe : isc-dhcp-server, tftpd-hpa, grub-pc-bin, grub-efi-amd64-bin, wakeonlan
 # Configure : DHCP, TFTP, GRUB PXE, scripts boot-manager
 
@@ -14,7 +14,7 @@ INTERFACE="eth1"   # Interface réseau du labo (172.16.16.0/24)
 SERVER_IP="172.16.16.1"
 
 echo "========================================"
-echo " Installation du serveur PXE — pcstage"
+echo " Installation du serveur PXE — Server"
 echo "========================================"
 echo ""
 
@@ -109,7 +109,37 @@ echo "      OK"
 # ─── grub.cfg principal ───────────────────────────────────────────────────
 echo "[5/6] Déploiement de grub.cfg et scripts..."
 
-cp /vagrant/config/grub.cfg "${GRUB_DIR}/grub.cfg"
+# ─── grub.cfg principal ───────────────────────────────────────────────────
+echo "[5/6] Déploiement de grub.cfg et scripts..."
+
+cat > "${GRUB_DIR}/grub.cfg" << 'EOF'
+set timeout=5
+set default=0
+
+# Charge le fichier de config spécifique à la machine si il existe
+if [ -f (pxe)/boot/grub/machines/${net_default_mac}.cfg ]; then
+  configfile (pxe)/boot/grub/machines/${net_default_mac}.cfg
+fi
+
+# Menu par défaut si aucun fichier trouvé pour cette machine
+menuentry "Linux (par defaut)" {
+  insmod part_gpt
+  insmod part_msdos
+  insmod ext2
+  insmod biosdisk
+  insmod chain
+  search --no-floppy --file --set=root /vmlinuz
+  chainloader (hd0)+1
+}
+
+menuentry "Windows (par defaut)" {
+  insmod part_gpt
+  insmod fat
+  insmod chain
+  search --no-floppy --file --set=root /EFI/Microsoft/Boot/bootmgfw.efi
+  chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+}
+EOF
 
 # Scripts
 cp /vagrant/scripts/discover.sh     "${SCRIPTS_DIR}/discover.sh"

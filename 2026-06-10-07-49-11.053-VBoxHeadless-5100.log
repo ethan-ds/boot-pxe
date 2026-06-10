@@ -1,19 +1,19 @@
-Log created: 2026-06-09T14:36:26.850614000Z
-Process ID:  20268 (0x4f2c)
-Parent PID:  12588 (0x312c)
+Log created: 2026-06-10T07:49:11.535683000Z
+Process ID:  5100 (0x13ec)
+Parent PID:  4400 (0x1130)
 Executable:  /usr/lib/virtualbox/VBoxHeadless
 Arg[0]: /usr/lib/virtualbox/VBoxHeadless
 Arg[1]: --comment
 Arg[2]: server
 Arg[3]: --startvm
-Arg[4]: f85c92e6-4a6f-4265-9c29-870fc090891e
+Arg[4]: c0cdbbfd-2e7b-4bdf-a6c6-87a879fa2cd2
 Arg[5]: --vrde
 Arg[6]: config
-E1000 #0: port=d010 mmio=00000000f0200000 mac-cfg=08:00:27:8d:c0:4d 82540EM R0
+E1000 #0: port=ffffffff mmio=ffffffffffffffff mac-cfg=08:00:27:8d:c0:4d 82540EM R0
 General registers ------------------------------------------------------------------
-   CTRL=00000249  STATUS=00000081    EECD=00000140    EERD=00000000  LEDCTL=07068302
-    FLA=00000000    MDIC=14201b40                                  CTRL_EXT=00000000
-   FCAL=00000000    FCAH=00000000     FCT=00000000     VET=00008100   FCTTV=00000000
+   CTRL=00000a09  STATUS=00000081    EECD=00000100    EERD=00000000  LEDCTL=07068302
+    FLA=00000000    MDIC=00000000                                  CTRL_EXT=00000000
+   FCAL=00000000    FCAH=00000000     FCT=00000000     VET=00000000   FCTTV=00000000
     PBA=00000000    TXCW=00000000    RXCW=00000000              EXTCNF_CTRL=00000000
 Interrupt registers ----------------------------------------------------------------
     ICR=00000000     ITR=00000000     ICS=00000000     IMS=00000000     IMC=00000000
@@ -24,7 +24,7 @@ Receive registers --------------------------------------------------------------
 Transmit registers -----------------------------------------------------------------
    TCTL=00000000    TIPG=00000000    AIFS=00000000
   TDBAL=00000000   TDBAH=00000000   TDLEN=00000000     TDH=00000000     TDT=00000000
-   TIDV=00000000  TXDMAC=00000000  TXDCTL=01010000    TADV=00000000   TSPMT=01000400
+   TIDV=00000000  TXDMAC=00000000  TXDCTL=00000000    TADV=00000000   TSPMT=01000400
 Management registers ---------------------------------------------------------------
     WUC=00000000    WUFC=00000000     WUS=00000000
    IPAV=00000000    MANC=00000000    WUPL=00000000
@@ -51,18 +51,18 @@ Diagnostic registers -----------------------------------------------------------
 RA00: DST 08:00:27:8d:c0:4d
 
 PHY registers ----------------------------------------------------------------------
-    PCTRL=1b40  PSTATUS=7949      PID=0141     EPID=0c24      ANA=0de1      LPA=01e0
+    PCTRL=1140  PSTATUS=7949      PID=0141     EPID=0c24      ANA=01e1      LPA=01e0
       ANE=0000      NPT=2001      LPN=0000     GCON=1e00  GSTATUS=0000 EPSTATUS=3000
-    PSCON=0868   PSSTAT=a000    PINTE=0000    PINTS=0000  EPSCON1=0d60     PREC=0000
+    PSCON=0068   PSSTAT=0000    PINTE=0000    PINTS=0000  EPSCON1=0d60     PREC=0000
   EPSCON2=000c    R30PS=0000    R30AW=0000
 
 PHY MDIO: state=MDIO_IDLE acc=0 cnt=0 addr=0
 
-E1000 #1: port=d040 mmio=00000000f0820000 mac-cfg=08:00:27:ab:34:fe 82540EM R0
+E1000 #1: port=ffffffff mmio=ffffffffffffffff mac-cfg=08:00:27:2c:7b:91 82540EM R0
 General registers ------------------------------------------------------------------
-   CTRL=00000249  STATUS=00000081    EECD=00000140    EERD=00000000  LEDCTL=07068302
-    FLA=00000000    MDIC=14201b40                                  CTRL_EXT=00000000
-   FCAL=00000000    FCAH=00000000     FCT=00000000     VET=00008100   FCTTV=00000000
+   CTRL=00000a09  STATUS=00000081    EECD=00000100    EERD=00000000  LEDCTL=07068302
+    FLA=00000000    MDIC=00000000                                  CTRL_EXT=00000000
+   FCAL=00000000    FCAH=00000000     FCT=00000000     VET=00000000   FCTTV=00000000
     PBA=00000000    TXCW=00000000    RXCW=00000000              EXTCNF_CTRL=00000000
 Interrupt registers ----------------------------------------------------------------
     ICR=00000000     ITR=00000000     ICS=00000000     IMS=00000000     IMC=00000000
@@ -73,7 +73,7 @@ Receive registers --------------------------------------------------------------
 Transmit registers -----------------------------------------------------------------
    TCTL=00000000    TIPG=00000000    AIFS=00000000
   TDBAL=00000000   TDBAH=00000000   TDLEN=00000000     TDH=00000000     TDT=00000000
-   TIDV=00000000  TXDMAC=00000000  TXDCTL=01010000    TADV=00000000   TSPMT=01000400
+   TIDV=00000000  TXDMAC=00000000  TXDCTL=00000000    TADV=00000000   TSPMT=01000400
 Management registers ---------------------------------------------------------------
     WUC=00000000    WUFC=00000000     WUS=00000000
    IPAV=00000000    MANC=00000000    WUPL=00000000
@@ -97,12 +97,12 @@ Diagnostic registers -----------------------------------------------------------
    RDFH=00000000    RDFT=00000000   RDFHS=00000000   RDFTS=00000000   RDFPC=00000000
    TDFH=00000000    TDFT=00000000   TDFHS=00000000   TDFTS=00000000   TDFPC=00000000
 
-RA00: DST 08:00:27:ab:34:fe
+RA00: DST 08:00:27:2c:7b:91
 
 PHY registers ----------------------------------------------------------------------
-    PCTRL=1b40  PSTATUS=7949      PID=0141     EPID=0c24      ANA=0de1      LPA=01e0
+    PCTRL=1140  PSTATUS=7949      PID=0141     EPID=0c24      ANA=01e1      LPA=01e0
       ANE=0000      NPT=2001      LPN=0000     GCON=1e00  GSTATUS=0000 EPSTATUS=3000
-    PSCON=0868   PSSTAT=a000    PINTE=0000    PINTS=0000  EPSCON1=0d60     PREC=0000
+    PSCON=0068   PSSTAT=0000    PINTE=0000    PINTS=0000  EPSCON1=0d60     PREC=0000
   EPSCON2=000c    R30PS=0000    R30AW=0000
 
 PHY MDIO: state=MDIO_IDLE acc=0 cnt=0 addr=0

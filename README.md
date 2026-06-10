@@ -24,7 +24,7 @@ projet-pxe/
 ├── config/
 │   └── grub.cfg                 ← menu GRUB principal (routage par MAC)
 ├── install/
-│   └── setup-pcstage.sh         ← installation complète du serveur
+│   └── setup-server.sh         ← installation complète du serveur
 └── scripts/
     ├── discover.sh              ← découverte des machines via dhcpd.leases
     └── boot-manager.sh          ← gestion des boots par salle/machine
@@ -51,10 +51,10 @@ git clone <repo>
 cd projet-pxe
 
 # Démarrer le serveur (provisionne automatiquement)
-vagrant up pcstage
+vagrant up server
 
 # Accéder au serveur
-vagrant ssh pcstage
+vagrant ssh server
 
 # Démarrer le client PXE (optionnel)
 vagrant up client
@@ -84,7 +84,7 @@ sudo boot-manager.sh
 
 | Machine   | IP           | Rôle                     |
 |-----------|--------------|--------------------------|
-| pcstage   | 172.16.16.1  | Serveur DHCP + TFTP      |
+| server    | 172.16.16.1  | Serveur DHCP + TFTP      |
 | client    | 172.16.16.50 | Client PXE (test)        |
 | pool DHCP | 172.16.16.100–254 | Machines du labo    |
 

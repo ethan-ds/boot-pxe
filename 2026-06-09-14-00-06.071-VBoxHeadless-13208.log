@@ -4,7 +4,7 @@ Parent PID:  12588 (0x312c)
 Executable:  /usr/lib/virtualbox/VBoxHeadless
 Arg[0]: /usr/lib/virtualbox/VBoxHeadless
 Arg[1]: --comment
-Arg[2]: pcstage
+Arg[2]: server
 Arg[3]: --startvm
 Arg[4]: f85c92e6-4a6f-4265-9c29-870fc090891e
 Arg[5]: --vrde

@@ -3,30 +3,30 @@
 #
 # Usage :
 #   vagrant up          → démarre toutes les VMs
-#   vagrant up pcstage  → démarre uniquement le serveur
-#   vagrant ssh pcstage → accès SSH au serveur
+#   vagrant up server  → démarre uniquement le serveur
+#   vagrant ssh server → accès SSH au serveur
 #   vagrant halt        → arrêt propre
 #   vagrant destroy     → suppression complète
 
 Vagrant.configure("2") do |config|
 
-  # ─── VM 1 : pcstage (serveur DHCP + TFTP + scripts) ───────────────────────
-  config.vm.define "pcstage" do |s|
+  # ─── VM 1 : server (serveur DHCP + TFTP + scripts) ───────────────────────
+  config.vm.define "server" do |s|
     s.vm.box      = "debian/bookworm64"
-    s.vm.hostname = "pcstage"
+    s.vm.hostname = "server"
 
     # Réseau interne simulant le réseau du labo (172.16.16.0/24)
     s.vm.network "public_network",
       ip: "172.16.16.1"
 
     s.vm.provider "virtualbox" do |vb|
-      vb.name   = "pcstage"
+      vb.name   = "server"
       vb.memory = 1024
       vb.cpus   = 2
     end
 
     # Provisionnement automatique
-    s.vm.provision "shell", path: "install/setup-pcstage.sh"
+    s.vm.provision "shell", path: "install/setup-server.sh"
   end
 
   # ─── VM 2 : client PXE (simule un poste du labo) ──────────────────────────
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
     c.vm.box      = "debian/bookworm64"
     c.vm.hostname = "client-pxe"
 
-    # Même réseau interne que pcstage
+    # Même réseau interne que server
     c.vm.network "public_network",
       ip: "172.16.16.50"
 
